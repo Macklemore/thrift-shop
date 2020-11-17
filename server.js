@@ -4,7 +4,9 @@ const jwt = require("jsonwebtoken");
 const sls = require("serverless-http");
 const app = express();
 const axios = require("axios");
+const cors = require("cors");
 
+app.use(cors());
 app.use(bodyParser.json());
 const port = process.env.PORT || 5000;
 
