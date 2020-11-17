@@ -18,8 +18,7 @@ import Register from "./components/register/Register";
 
 import App from "./components/app";
 
-// let baseUrl = "https://coinbay.vinsonly.me";
-let baseUrl = "https://1syg65y8d7.execute-api.us-east-1.amazonaws.com/dev";
+let baseUrl = process.env.REACT_APP_SERVER_BASE_URL;
 
 var env = process.env.NODE_ENV || "development";
 
@@ -31,7 +30,7 @@ if (
     process.env.REACT_APP_CUSTOM_NODE_ENV &&
     process.env.REACT_APP_CUSTOM_NODE_ENV == "production"
 ) {
-    baseUrl = "https://1syg65y8d7.execute-api.us-east-1.amazonaws.com/dev";
+    baseUrl = process.env.REACT_APP_SERVER_BASE_URL;
 }
 
 console.log("baseUrl: ", baseUrl);
