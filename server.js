@@ -44,11 +44,26 @@ app.get("/api/hello", (req, res) => {
 app.use("*", async (req, res) => {
     try {
         // Extract HTTP method and endpoint url
-        const { method, originalUrl } = req;
+        const {
+            method,
+            originalUrl,
+            headers: { authorization },
+            body,
+        } = req;
+
         const axiosConfig = {
             method,
             url: `https://coinbay.vinsonly.me${originalUrl}`,
+            data: body,
+            headers: {
+                "Content-Type": "application/json",
+            },
         };
+
+        if (authorization) {
+            axiosConfig.headers.authorization = authorization;
+        }
+
         // Make request to https://coinbay.vinsonly.me/<whatever endpoint>
         const { data } = await axios(axiosConfig);
         return res.send(data);
