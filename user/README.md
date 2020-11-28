@@ -1,10 +1,10 @@
-# Api Service
+# User Service
 
 ## Deployment Instructions
 
 > Based on [this tutorial](https://aws.amazon.com/getting-started/hands-on/break-monolith-app-microservices-ecs-docker-ec2/)
 
--   Create ECR Repo called `api` ([link](https://aws.amazon.com/getting-started/hands-on/break-monolith-app-microservices-ecs-docker-ec2/module-one/) - Step 3)
+-   Create ECR Repo called `user` ([link](https://aws.amazon.com/getting-started/hands-on/break-monolith-app-microservices-ecs-docker-ec2/module-one/) - Step 3)
 
 -   Note ECR repo URL, something like `<account ID>.dkr.ecr.us-east-1.amazonaws.com/<repo name>`
 
@@ -15,25 +15,14 @@
 $ aws ecr get-login-password --region us-east-1 --profile <aws educate profile name> | sudo docker login --username AWS --password-stdin <account ID>.dkr.ecr.us-east-1.amazonaws.com
 
 # Build image
-$ cd api
-$ sudo docker build -t api .
+$ cd user
+$ sudo docker build -t user .
 
 # Tag docker image
-$ sudo docker tag api:latest <repo url>:v1
+$ sudo docker tag user:latest <repo url>:v1
 
 # Push docker image
 $ sudo docker push <repo url>:v1
-```
-
--   Create CloudFormation stack (Might take 5-7 minutes)
-
-```bash
-aws cloudformation deploy \
-  --template-file api/ecs.yml \
-  --region us-east-1 \
-  --stack-name monolith \
-  --capabilities CAPABILITY_NAMED_IAM \
-  --profile <aws educate profile name>
 ```
 
 -   Create task definition ([link](https://aws.amazon.com/getting-started/hands-on/break-monolith-app-microservices-ecs-docker-ec2/module-two/) - Step 3)
