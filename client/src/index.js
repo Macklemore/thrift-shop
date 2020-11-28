@@ -1,34 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Navigation from './components/navigation/Navigation';
-import Search from './components/search/Search';
-import CatNavigation from './components/catNavigation/catNavigation';
-import Posts from './components/posts/Posts';
-import Transaction from './components/transaction/Transaction';
-import Whoops404 from './components/whoops404/Whoops404';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import SinglePosting from './components/postingSingle';
-import PostingUpload from './components/postingUpload';
+import React from "react";
+import ReactDOM from "react-dom";
+import Navigation from "./components/navigation/Navigation";
+import Search from "./components/search/Search";
+import CatNavigation from "./components/catNavigation/catNavigation";
+import Posts from "./components/posts/Posts";
+import Transaction from "./components/transaction/Transaction";
+import Whoops404 from "./components/whoops404/Whoops404";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import SinglePosting from "./components/postingSingle";
+import PostingUpload from "./components/postingUpload";
 
-import registerServiceWorker from './registerServiceWorker';
-import './index.css';
+import registerServiceWorker from "./registerServiceWorker";
+import "./index.css";
 
-import Login from "./components/login/Login"
-import Register from "./components/register/Register"
+import Login from "./components/login/Login";
+import Register from "./components/register/Register";
 
-import App from './components/app';
+import App from "./components/app";
 
 // let baseUrl = "https://coinbay.vinsonly.me";
-let baseUrl = "https://hqk24xu3jg.execute-api.us-east-1.amazonaws.com/dev";
+let baseUrl = "https://1syg65y8d7.execute-api.us-east-1.amazonaws.com/dev";
 
-var env = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV || "development";
 
-if (env == 'development') {
+if (env == "development") {
     baseUrl = "http://localhost:5000";
 }
 
-if (process.env.REACT_APP_CUSTOM_NODE_ENV && process.env.REACT_APP_CUSTOM_NODE_ENV == 'production') {
-	baseUrl = "https://hqk24xu3jg.execute-api.us-east-1.amazonaws.com/dev";
+if (
+    process.env.REACT_APP_CUSTOM_NODE_ENV &&
+    process.env.REACT_APP_CUSTOM_NODE_ENV == "production"
+) {
+    baseUrl = "https://1syg65y8d7.execute-api.us-east-1.amazonaws.com/dev";
 }
 
 console.log("baseUrl: ", baseUrl);
@@ -42,11 +45,11 @@ console.log("baseUrl: ", baseUrl);
 // 	document.getElementById('navigation')
 // );
 
-ReactDOM.render((
-	<BrowserRouter>
-		<App />
-	</BrowserRouter>),
-	document.getElementById('root')
+ReactDOM.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
+    document.getElementById("root")
 );
 
 registerServiceWorker();
