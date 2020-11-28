@@ -18,31 +18,15 @@ import Register from "./components/register/Register";
 
 import App from "./components/app";
 
-let baseUrl = process.env.REACT_APP_SERVER_BASE_URL;
 
-var env = process.env.NODE_ENV || "development";
+let baseUrl = "http://monol-ecsal-11t95abd0otdz-1158302926.us-east-1.elb.amazonaws.com/";
 
-if (env == "development") {
-    baseUrl = "http://localhost:5000";
-}
-
-if (
-    process.env.REACT_APP_CUSTOM_NODE_ENV &&
-    process.env.REACT_APP_CUSTOM_NODE_ENV == "production"
-) {
+if (process.env.REACT_APP_SERVER_BASE_URL) {
+	console.log("Using custom server base url: ", process.env.REACT_APP_SERVER_BASE_URL);
     baseUrl = process.env.REACT_APP_SERVER_BASE_URL;
 }
 
-console.log("baseUrl: ", baseUrl);
-
-// ReactDOM.render(
-// 	<div>
-// 		<Navigation/>
-// 		<CatNavigation/>
-// 		<Search/>
-// 	</div>,
-// 	document.getElementById('navigation')
-// );
+console.log("baseUrl :", process.env.REACT_APP_SERVER_BASE_URL);
 
 ReactDOM.render(
     <BrowserRouter>
