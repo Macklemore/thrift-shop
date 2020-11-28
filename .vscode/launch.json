@@ -10,6 +10,20 @@
             "name": "api",
             "skipFiles": ["<node_internals>/**"],
             "program": "${workspaceFolder}/api/index.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "user",
+            "skipFiles": ["<node_internals>/**"],
+            "program": "${workspaceFolder}/user/index.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "posting",
+            "skipFiles": ["<node_internals>/**"],
+            "program": "${workspaceFolder}/posting/index.js"
         }
     ]
 }
