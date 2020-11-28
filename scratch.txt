@@ -1,0 +1,1 @@
+aws elbv2 create-target-group --region us-east-1 --name <service name> --protocol HTTP --port 80 --vpc-id <load balancer vpc id> --healthy-threshold-count 2 --unhealthy-threshold-count 2 --health-check-timeout-seconds 5 --health-check-interval-seconds 6 --profile ed
