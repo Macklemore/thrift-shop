@@ -45,17 +45,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'buyerId',
       as: 'boughtPosts'
     });
-
-    // User.hasMany(models.Posting, {
-    //   foreignKey: 'userId',
-    //   as: 'pendingPost'
-    // });
-
-    // User.hasMany(models.Posting, {
-    //   foreignKey: 'userId',
-    //   as: 'activePosts'
-    // });
-
   };
   return User;
 };

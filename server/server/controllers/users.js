@@ -10,8 +10,7 @@ module.exports = {
 
     // create new user
     create(req, res) {
-        console.log("req.body:");
-        console.log(req.body);
+        console.log("req.body: ", req.body);
 
         let password = req.body.password;
         let saltRounds = 10;
@@ -20,8 +19,7 @@ module.exports = {
                 if(err || !hash) {
                     res.status(400).send(err.message);
                 } else {
-                    console.log("hash:");
-                    console.log(hash);
+                    console.log("hash: ", hash);
 
                     // save hash into the database;
                     User

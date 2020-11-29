@@ -48,26 +48,7 @@ module.exports = (sequelize, DataTypes) => {
     accepted: {
       type: DataTypes.BOOLEAN,
       allowNull: true
-    },
-    transaction: {
-      type: DataTypes.JSONB,
-      allowNull: true
-    },
-    /* transaction:
-      - contract address - string
-      - txid's - string array
-      - startedAt - integer (unix time)
-      - completedAt - integer (unix time)
-      
-    */
-    // transactions: {
-    //   type: DataTypes.ARRAY(DataTypes.STRING),
-    //   allowNull: true
-    // },
-    // contractAddress: {
-    //   type: DataTypes.STRING,
-    //   allowNull: true
-    // },
+    }
   }, {});
   Posting.associate = function(models) {
     // associations can be defined here

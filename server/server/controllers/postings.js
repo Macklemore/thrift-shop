@@ -5,13 +5,8 @@ const Op = require('sequelize').Op;
 
 const auth = require('./auth');
 
-
 var db = require('../models');
 var sequelize = db.sequelize;
-
-// var getWeb3 = require('../../utils/getWeb3');
-
-// var BasicEscrow = require('../eth/build/contracts/BasicEscrow.json');
 
 module.exports = {
     // define your route handlers here, see below for details
@@ -648,10 +643,12 @@ module.exports = {
             id: 1, # posting id
         }
     */
-    setSold(req, res) {
+    buyItem(req, res) {
 
         let id = parseInt(req.body.id);
         console.log(req.body);
+
+        console.log("req.body: ", req.body);
 
         return Posting
             .findById(id)
@@ -663,7 +660,8 @@ module.exports = {
                     } else {
                         return posting
                             .update({
-                                status: "fulfilled"
+                                status: "fulfilled",
+                                buyerId: req.body.validatedUser.id
                             })
                             .then(() => {
                                 console.log("Successfully updated posting");

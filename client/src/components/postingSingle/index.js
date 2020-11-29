@@ -8,6 +8,7 @@ import SimpleMap from '../mapsPostLocation/mapsPostLocation';
 import setUpRatingArrays from '../../helpers/postings.js';
 import swal from 'sweetalert';
 import { baseUrl} from '../../index';
+import axios from 'axios';
 
 const styles = theme => ({
   root: {
@@ -129,19 +130,7 @@ class SinglePosting extends React.Component {
      * @return {number} The dot's width, in pixels.
     */
   offered() {
-    let buyer = this.props.loggedInUser;
-    let seller = this.state.user;
-
-    if(buyer.id == seller.id) {
-      swal({
-        text: 'You may not place an order for own postings',
-        icon: "error",
-      });
-      return;
-    }
-
     console.log("this.props.loggedInUser: ", this.props.loggedInUser)
-
     if(!this.props.loggedInUser.id) {
       swal({
         text: 'Please log in to place offers on items',
@@ -157,13 +146,24 @@ class SinglePosting extends React.Component {
       })
       return;
     }
+    
+    let buyer = this.props.loggedInUser;
+    let seller = this.state.user;
+
+    if(buyer.id == seller.id) {
+      swal({
+        text: 'You may not place an order for own postings',
+        icon: "error",
+      });
+      return;
+    }
 
     swal({
       text: "Please confirm whether you would like to purchase this item.",
       icon: "warning",
       closeOnClickOutside: false,
       buttons: {
-        submitOffer: "Submit Offer",
+        submitOffer: "Yes",
         cancel: "Cancel"
       }
     }).then(res => {
@@ -179,6 +179,32 @@ class SinglePosting extends React.Component {
       }
 
       // TODO: add logic to purchase the item
+      // call the API, then after the API resolves, navigate the user to the screen with the transaction details
+
+      let postingId = this.props.match.params.id
+
+
+      axios({
+        baseURL: `${baseUrl}/api`,
+        url: '/posting/buyItem',
+        method: 'post',
+        headers:{
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + localStorage.getItem('sessionToken')
+        }, 
+        data: {
+          id: postingId
+        }
+      }).then(res => {
+        console.log("res: ", res);
+        // redirect the user to the transaction confirmation page.
+      }).catch(err => {
+        swal({
+          text: "Unable to buy item, please try again later",
+          icon: "error"
+        })
+      })
+
 
     })
   }
