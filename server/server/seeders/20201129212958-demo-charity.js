@@ -12,10 +12,6 @@ let charities = [
     website: "https://www.redcross.ca/"
   },
   {
-    name: "Canadian Red Cross",
-    website: "https://www.redcross.ca/"
-  },
-  {
     name: "BC Children's Hospital",
     website: "http://www.bcchildrens.ca/donate"
   },

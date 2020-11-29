@@ -9,6 +9,11 @@ import setUpRatingArrays from '../../helpers/postings.js';
 import swal from 'sweetalert';
 import { baseUrl} from '../../index';
 import axios from 'axios';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 
 const styles = theme => ({
   root: {
@@ -36,7 +41,8 @@ class SinglePosting extends React.Component {
       buttonText: "Buy Now",
       buttonDisabled: false,
       bidButtonStyle: {},
-      buttonStylesSet: false
+      buttonStylesSet: false,
+      selectedCharity: null
     };
 
     this.arraySetupWrapper = this.arraySetupWrapper.bind(this);
@@ -86,6 +92,13 @@ class SinglePosting extends React.Component {
           .catch(err => {
             console.log(err);
           })
+      })
+
+      axios.get(`${baseUrl}/api/charities`).then(res => {
+        console.log("charities res: ", res);
+        this.setState({charities: res.data});
+      }).catch(err => {
+        console.log(err);
       })
 
   }
@@ -216,6 +229,13 @@ class SinglePosting extends React.Component {
     })
   }
 
+  handleCharityChange = (event) => {
+    console.log("event: ", event);
+    this.setState({
+      selectedCharity: event.target.value
+    })
+  }
+
   componentDidMount() {
     this.setButtonStyle();
   }
@@ -304,7 +324,27 @@ class SinglePosting extends React.Component {
 
                     </div>
                   </div>
+
+                  <div className="charity-selector">
+                    <FormControl style={{width: "100%"}}>
+                      <InputLabel id="charity-select-label">Charity</InputLabel>
+                      <Select
+                        labelId="charity-select-label"
+                        id="charity-select"
+                        value={this.state.selectedCharity}
+                        onChange={this.handleCharityChange}
+                      >
+                        {
+                          this.state.charities.map((c, i) => {
+                            return <MenuItem value={c.name}>{c.name}</MenuItem>
+                          })
+                        }
+                      </Select>
+                    </FormControl>
+                  </div>
+
                   <br/>
+
                   <Button onClick={ () => this.offered() } variant="contained" color="primary" className="bid-button" style={this.state.bidButtonStyle} disabled={this.state.buttonDisabled}>
                     {this.state.buttonText}
                   </Button>

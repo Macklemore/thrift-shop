@@ -1,6 +1,7 @@
 const usersController = require('../controllers').users;
 const postingsController = require('../controllers').postings;
 const adminusersController = require('../controllers').adminusers;
+const charitiesController = require('../controllers').charities
 const authController = require('../controllers').auth;
 
 module.exports = (app) => {
@@ -34,6 +35,8 @@ module.exports = (app) => {
 
     app.post('/api/posting/buy/:id', authController.verifyToken, postingsController.setUpTransaction); // user must be logged in
     app.post('/api/posting/set_transaction', authController.verifyToken, postingsController.setTransaction)
+
+    app.get('/api/charities', charitiesController.read);
 
     // WRITE THE OTHER ENDPOINTS DOWN HERE
     app.post('/api/login', authController.login);
