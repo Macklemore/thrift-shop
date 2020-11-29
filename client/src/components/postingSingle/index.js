@@ -198,6 +198,13 @@ class SinglePosting extends React.Component {
       }).then(res => {
         console.log("res: ", res);
         // redirect the user to the transaction confirmation page.
+        this.props.history.push({
+          pathname: '/transaction_confirmed',
+          state: { 
+            posting: this.state.posting
+          }
+        })
+
       }).catch(err => {
         swal({
           text: "Unable to buy item, please try again later",

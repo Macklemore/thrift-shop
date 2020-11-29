@@ -113,31 +113,7 @@ class TransactionHistory extends Component {
             width: 150
           }
         ]
-      },
-      {
-        Header: "Transaction Info",
-        columns: [
-          {
-            Header: "Time Initialized",
-            accessor: "transaction.startedAt",
-            Cell: ({value}) => (<p>{convertToDate(value)}</p>)
-          },
-          {
-            Header: "Time Completed",
-            accessor: "transaction.completedAt",
-            Cell: ({value}) => (<p>{convertToDate(value)}</p>)
-          },
-          {
-            Header: "Contract Address",
-            accessor: "transaction.contractAddress",
-          },
-          {
-            Header: "Transactions",
-            accessor: "transaction.txids",
-            Cell: ({value}) => (<TransactionModal txids={value}/>)
-          } 
-        ],
-      },
+      }
     ];
 
     return (

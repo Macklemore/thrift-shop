@@ -158,7 +158,7 @@ class Navigation extends Component {
                                             </span>
                                         </DropdownToggle>
                                         <DropdownMenu>
-                                            <DropdownItem><NavLink to="/manage_transactions">Manage Transactions</NavLink></DropdownItem>
+                                            {/* <DropdownItem><NavLink to="/manage_transactions">Manage Transactions</NavLink></DropdownItem> */}
                                             <DropdownItem><NavLink to="/transaction_history">Transaction History</NavLink></DropdownItem>
                                             <DropdownItem><NavLink to="/profile">Profile</NavLink></DropdownItem>
                                             <DropdownItem onClick={this.props.signOut}><span id="signOut">Sign Out</span></DropdownItem>

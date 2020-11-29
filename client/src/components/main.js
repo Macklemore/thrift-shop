@@ -15,6 +15,7 @@ import Login from "./login/Login"
 import Register from "./register/Register"
 import UserDashboard from './userDashboard';
 import TransactionHistory from './transactionHistory';
+import ConfirmationPage from './confirmationPage';
 
 class Main extends Component {
 
@@ -124,6 +125,7 @@ class Main extends Component {
                     <Route path="/sign_out" component={SignOut}/>
                     <Route path="/profile" render={props => <UserDashboard loggedInUser={this.props.loggedInUser} />} />
                     <Route path="/transaction_history" render={props => <TransactionHistory loggedInUser={this.props.loggedInUser}/>} />
+                    <Route path="/transaction_confirmed" render={props => <ConfirmationPage loggedInUser={this.props.loggedInUser} />} />
                     <Route component={Whoops404}/>
                 </Switch>
             </main>

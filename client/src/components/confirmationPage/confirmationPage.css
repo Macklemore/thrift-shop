@@ -1,0 +1,20 @@
+#confirmationPage {
+    margin-top: 12px;
+    padding: 30px;
+}
+
+.confirmation-page-item-details {
+    margin: 10px;
+}
+
+.item-title {
+    font-weight: bolder;
+}
+
+.item-price {
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}

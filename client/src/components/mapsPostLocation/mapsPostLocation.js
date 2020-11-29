@@ -37,7 +37,7 @@ class PostingSingleMarker extends Component {
   render() {
     return(
       <div id="marker">
-        <i class="material-icons" style={{color: 'red'}}>
+        <i className="material-icons" style={{color: 'red'}}>
           place
         </i>
       </div>
