@@ -13,6 +13,7 @@
     "lodash": "^4.17.10",
     "mdbreact": "^4.6.0",
     "react": "^16.4.1",
+    "react-autosuggest": "^10.0.4",
     "react-dom": "^16.4.1",
     "react-dropzone": "^4.2.13",
     "react-flatpickr": "^3.6.4",
