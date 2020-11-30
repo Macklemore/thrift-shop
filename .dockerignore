@@ -1,0 +1,13 @@
+client/
+chef/
+.serverless/
+node_modules/
+.gitignore
+.sequelizerc
+*.txt
+*.md
+Vagrantfile
+yarn.lock
+*.gif
+*.yml
+*.sh
