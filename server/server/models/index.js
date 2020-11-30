@@ -1,12 +1,28 @@
 'use strict';
-
+require('dotenv').config()
 var fs        = require('fs');
 var path      = require('path');
 var Sequelize = require('sequelize');
 var basename  = path.basename(__filename);
 var env       = process.env.NODE_ENV || 'development';
-var config    = require(__dirname + '/../config/config.json')[env];
+var config    = require(__dirname + '/../config/config.js')[env];
 var db        = {};
+
+// console.log("default config: ", config);
+
+// console.log("process.env.DB_USERNAME");
+
+// if (process.env.DB_USERNAME) {
+//   config = {
+//     username: process.env.DB_USERNAME,
+//     password: process.env.DB_PASSWORD,
+//     database: process.env.DB_DATABASE,
+//     host: process.env.DB_HOST,
+//     dialect: "postgres"
+//   }
+// }
+
+// console.log("new config: ", config);
 
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable], config);

@@ -14,18 +14,7 @@ app.get('/api/hello', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
 
-// app.post('/api/blah', verifyToken, (req, res) => {
-//   jwt.verify(req.token, 'secretkey', (err, authData) => {
-//     if(err) {
-//       res.sendStatus(403);
-//     } else {
-//       res.json({
-//         message: "BLAH",
-//         authData
-//       });
-//     }
-//   });  
-// });
+console.log("environment: ", process.env.NODE_ENV);
 
 // FORMAT OF TOKEN
 // Authorization: Bearer <access_token>
