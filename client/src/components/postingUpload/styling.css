@@ -83,3 +83,12 @@ span.removeImageBtn {
     color: white;
     padding: 10px;
 }
+
+.posted-img {
+    max-height: 200px;
+    max-width: 100%;
+}
+
+.image-list-item {
+    margin: 10px 0;
+}

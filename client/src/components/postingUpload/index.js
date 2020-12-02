@@ -5,8 +5,6 @@ import Map from '../maps';
 import Dropzone from 'react-dropzone';
 import './styling.css';
 import swal from 'sweetalert';
-import { Button } from 'mdbreact';
-import { baseUrl} from '../../index';
 
 let object;
 /** Class representing a postings creation component */
@@ -149,8 +147,6 @@ class PostingUpload extends React.Component {
 
         console.log("data", data);
 
-        return
-
         fetch(url, {
             method: 'POST',
             body: JSON.stringify(data), // data can be `string` or {object}!
@@ -215,7 +211,7 @@ class PostingUpload extends React.Component {
             status: "Uploading image(s)..."
         });
 
-        fetch(baseUrl + 'https://api.imgur.com/3/image', {
+        fetch('https://api.imgur.com/3/image', {
             method: 'POST', // or 'PUT'
             body: JSON.stringify(data), // data can be `string` or {object}!
             headers:{
@@ -395,15 +391,16 @@ class PostingUpload extends React.Component {
 
                                 if(this.props.isEdit) {
                                     return(
-                                        <li key={index}>
-                                            <a href={image}>{image}</a>
+                                        <li key={index} className="image-list-item">
+                                            <img className="posted-img" src={image}></img>
                                             <span className="removeImageBtn" type="text" onClick={this.removeImage.bind(this, index)}>Remove</span>
                                         </li>
                                     )
                                 }
 
                                 return(
-                                    <li key={index}><a href={image}>{image}</a></li>
+                                    <li key={index} className="image-list-item"><img className="posted-img" src={image}></img></li>
+                                    
                                 )
                             })
                         }</div>

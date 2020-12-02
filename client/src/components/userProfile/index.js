@@ -209,11 +209,11 @@ class UserProfile extends Component {
                         Edit User Info
                     </Button>
 
-                    <Link to="/manage_transactions">
+                    {/* <Link to="/manage_transactions">
                         <Button variant="contained" color="primary" className={"profileOffers"}>
                             View Your Offers
                         </Button>
-                    </Link>
+                    </Link> */}
 
                 </ul>
             </div>
