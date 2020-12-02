@@ -67,3 +67,12 @@ h5.metaMaskWarning {
     font-weight: bold;
     color: rgba(255, 0, 0, 0.795)
 }
+
+select#charitySelector {
+    width: 100%;
+    padding: 10px;
+}
+
+.charity-selector {
+    margin-top: 20px;
+}

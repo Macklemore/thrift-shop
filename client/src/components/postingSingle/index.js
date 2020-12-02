@@ -326,21 +326,14 @@ class SinglePosting extends React.Component {
                   </div>
 
                   <div className="charity-selector">
-                    <FormControl style={{width: "100%"}}>
-                      <InputLabel id="charity-select-label">Charity</InputLabel>
-                      <Select
-                        labelId="charity-select-label"
-                        id="charity-select"
-                        value={this.state.selectedCharity}
-                        onChange={this.handleCharityChange}
-                      >
+                    <label htmlFor="Category" className="grey-text">Category</label><br/>
+                    <select name="charities" id="charitySelector" value={this.state.selectedCharity} onChange={this.handleCharityChange}>
                         {
                           this.state.charities.map((c, i) => {
-                            return <MenuItem value={c.name}>{c.name}</MenuItem>
+                            return <option value={c.name} key={i}>{c.name}</option>
                           })
-                        }
-                      </Select>
-                    </FormControl>
+                        }            
+                    </select>
                   </div>
 
                   <br/>
