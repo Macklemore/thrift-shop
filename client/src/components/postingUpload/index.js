@@ -5,6 +5,7 @@ import Map from '../maps';
 import Dropzone from 'react-dropzone';
 import './styling.css';
 import swal from 'sweetalert';
+import { baseUrl} from '../../index';
 
 let object;
 /** Class representing a postings creation component */
@@ -147,7 +148,7 @@ class PostingUpload extends React.Component {
 
         console.log("data", data);
 
-        fetch(url, {
+        fetch(`${baseUrl}${url}`, {
             method: 'POST',
             body: JSON.stringify(data), // data can be `string` or {object}!
             headers:{
